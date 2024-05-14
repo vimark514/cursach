@@ -3,11 +3,16 @@ from django.shortcuts import render
 from django.template import context
 from django.template.defaulttags import lorem
 
+from goods.models import Categories
+
 # Create your views here.
 def index(request):
+    categories = Categories.objects.all()
+
     context = {
         'title': 'Home - Главная',
-        'content': 'Магазин мебели HOME'
+        'content': 'Магазин мебели HOME',
+        'categories': categories
     }
 
     return render(request, 'main/index.html', context)

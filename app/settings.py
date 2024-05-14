@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'main',
+    'goods'
 ]
 
 MIDDLEWARE = [
@@ -78,10 +79,15 @@ WSGI_APPLICATION = 'app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'project',
+        'USER': 'admin',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',  # Change this if your MySQL server is on a different host
+        'PORT': '5432',       # Change this if your MySQL server uses a different port
     }
 }
+
 
 
 # Password validation
