@@ -10,10 +10,10 @@
                 Фильтры
             </button>
 
-            <form action="" method="get" class="dropdown-menu bg-dark" data-bs-theme="dark">
+            <form action="{% url "catalog:index" slug_url %}" method="get" class="dropdown-menu bg-dark" data-bs-theme="dark">
                 <div class="form-check text-white mx-3">
                     <input class="form-check-input" type="checkbox" name="on_sale" id="flexCheckDefault" value="on">
-                    <input type="hidden" name="q" value="request.GET.q">
+                    {% comment %} <input type="hidden" name="q" value="request.GET.q"> {% endcomment %}
                     <label class="form-check-label" for="flexCheckDefault">
                         Товары по акции
                     </label>
@@ -53,10 +53,10 @@
                     <img src="{% static "deps/images/Not found image.png" %}" class="card-img-top" alt="...">
                 {% endif %}
                 <div class="card-body">
-                    <a href="../goods/product.html">
+                    <a href="{% url "catalog:product" product.slug %}">
                         <p class="card-title">{{ product.name }}</p>
                     </a>
-                    <p class="card-text text-truncate">{{ product.description }}</p>
+                    <p class="card-text">{{ product.desctiption|truncatechars:35 }}</p>
                     <p class="product_id">id: {{ product.display_id }}</p>
                     <div class="d-flex justify-content-between">
                         {% if product.discount %}
@@ -77,28 +77,13 @@
         {% endfor %}
 
     </div>
-    <!-- Пагинация -->
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center my-4">
-            <div class="custom-shadow d-flex">
-                <li class="page-item disabled">
-                <a class="page-link">Previous</a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-                </li>
-            </div>
-        </ul>
-    </nav>
+    
 {% endblock  %}
 
 {% block footer %}
     <footer class="py-4 bg-dark">
         <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Home Python Hub Studio 2023</p>
+            <p class="m-0 text-center text-white"></p>
         </div>
     </footer>
 {% endblock %}
