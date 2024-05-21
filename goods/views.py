@@ -4,8 +4,6 @@ from goods.models import Products
 from goods.utils import q_search
 
 def catalog(request, category_slug=None):
-
-
     on_sale = request.GET.get('on_sale', None)
     order_by = request.GET.get('order_by', None)
     query = request.GET.get('q', None)
@@ -23,7 +21,7 @@ def catalog(request, category_slug=None):
         goods = goods.order_by(order_by)
 
     context = {
-        'title': 'Home - каталог',
+        'title': 'BMW - Catalog',
         'goods': goods,
         'slug_url': category_slug,
     }

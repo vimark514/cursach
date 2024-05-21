@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'main',
     'goods',
     'users',
+    'carts',
+    
 ]
 
 MIDDLEWARE = [
@@ -90,8 +92,8 @@ DATABASES = {
         'NAME': 'project',
         'USER': 'admin',
         'PASSWORD': 'root',
-        'HOST': 'localhost',  # Change this if your MySQL server is on a different host
-        'PORT': '5432',       # Change this if your MySQL server uses a different port
+        'HOST': 'localhost',  
+        'PORT': '5432',       
     }
 }
 
